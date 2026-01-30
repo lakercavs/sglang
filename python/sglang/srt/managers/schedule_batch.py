@@ -790,7 +790,7 @@ class Req:
         # NOTE: when spec is enabled, prefill_only optimizations are disabled
 
         spec_alg = get_global_server_args().speculative_algorithm
-        return self.sampling_params.max_new_tokens == 0 and spec_alg is None
+        return self.sampling_params.max_new_tokens <= 1 and spec_alg is None
 
     @property
     def output_ids_through_stop(self) -> List[int]:
